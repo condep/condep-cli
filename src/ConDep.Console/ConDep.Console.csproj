@@ -76,6 +76,15 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConDep.Dsl">
+      <HintPath>..\packages\ConDep.Dsl.2.0.63-beta\lib\net40\ConDep.Dsl.dll</HintPath>
+    </Reference>
+    <Reference Include="ConDep.WebQ.Client">
+      <HintPath>..\packages\ConDep.WebQ.Client.2.0.0\lib\net40\ConDep.WebQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ConDep.WebQ.Data">
+      <HintPath>..\packages\ConDep.WebQ.Client.2.0.0\lib\net40\ConDep.WebQ.Data.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -83,8 +92,20 @@
     <Reference Include="NDesk.Options">
       <HintPath>..\packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -93,9 +114,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyVersionInfo.cs">
-      <Link>Properties\AssemblyVersionInfo.cs</Link>
-    </Compile>
     <Compile Include="CmdFactory.cs" />
     <Compile Include="ConDepCommand.cs" />
     <Compile Include="ConDepValidationException.cs" />
@@ -133,21 +151,9 @@
     <Compile Include="Server\CmdServerValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConDep.Dsl\ConDep.Dsl.csproj">
-      <Project>{e7eba0ac-b91d-450f-8a68-5adcf18fe17e}</Project>
-      <Name>ConDep.Dsl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConDep.Remote\ConDep.Remote.csproj">
       <Project>{70370a66-9199-4450-b12e-3ef3e176daf2}</Project>
       <Name>ConDep.Remote</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConDep.WebQ.Client\ConDep.WebQ.Client.csproj">
-      <Project>{F552A5A9-3250-498D-98AE-2B5D6C63C9B8}</Project>
-      <Name>ConDep.WebQ.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConDep.WebQ.Data\ConDep.WebQ.Data.csproj">
-      <Project>{F94D1BBC-C4FB-4207-BFBE-B93BA96F55B3}</Project>
-      <Name>ConDep.WebQ.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +166,6 @@
     <EmbeddedResource Include="internal.condep.log4net.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
