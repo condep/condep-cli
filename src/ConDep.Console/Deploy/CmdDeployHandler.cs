@@ -44,7 +44,7 @@ namespace ConDep.Console.Deploy
                 _tokenSource = new CancellationTokenSource();
                 var token = _tokenSource.Token;
 
-                var task = ConDepConfigurationExecutor.ExecuteFromAssemblyAsync(conDepSettings, token);
+                var task = ConDepConfigurationExecutor.ExecuteFromAssembly(conDepSettings, status, token);
 
                 task.ContinueWith(result =>
                         {
