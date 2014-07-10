@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="CmdParserTests.cs" />
     <Compile Include="CmdFactoryTests.cs" />
+    <Compile Include="Encryption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
