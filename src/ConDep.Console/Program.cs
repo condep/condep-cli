@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Text;
 using ConDep.Dsl.Logging;
 
 namespace ConDep.Console
@@ -10,6 +11,7 @@ namespace ConDep.Console
 
         static void Main(string[] args)
         {
+            System.Console.OutputEncoding = Encoding.GetEncoding(1252);
             var exitCode = 0;
             System.Console.CancelKeyPress += Console_CancelKeyPress;
 

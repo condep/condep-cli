@@ -76,8 +76,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl">
-      <HintPath>..\packages\ConDep.Dsl.2.0.63-beta\lib\net40\ConDep.Dsl.dll</HintPath>
+    <Reference Include="ConDep.Dsl, Version=3.0.0.26893, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ConDep.Dsl.3.0.0-beta\lib\net40\ConDep.Dsl.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.WebQ.Client">
       <HintPath>..\packages\ConDep.WebQ.Client.2.0.0\lib\net40\ConDep.WebQ.Client.dll</HintPath>
@@ -94,6 +95,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SlowCheetah.Tasks">
+      <HintPath>..\packages\SlowCheetah.Tasks.Unofficial.1.0.0\lib\SlowCheetah.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -131,6 +135,7 @@
     <Compile Include="Deploy\CmdDeployValidator.cs" />
     <Compile Include="CommandLineParams.cs" />
     <Compile Include="ConDepCmdParseException.cs" />
+    <Compile Include="Deploy\ConDepStatus.cs" />
     <Compile Include="Encrypt\CmdEncryptHandler.cs" />
     <Compile Include="Encrypt\CmdEncryptHelpWriter.cs" />
     <Compile Include="Encrypt\CmdEncryptParser.cs" />
@@ -142,19 +147,12 @@
     <Compile Include="Help\ConDepHelpOptions.cs" />
     <Compile Include="IHandleConDepCommands.cs" />
     <Compile Include="LogConfigLoader.cs" />
-    <Compile Include="Mono.Options\Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server\CmdServerHandler.cs" />
     <Compile Include="Server\CmdServerHelpWriter.cs" />
     <Compile Include="Server\CmdServerParser.cs" />
     <Compile Include="Server\CmdServerValidator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConDep.Remote\ConDep.Remote.csproj">
-      <Project>{70370a66-9199-4450-b12e-3ef3e176daf2}</Project>
-      <Name>ConDep.Remote</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
