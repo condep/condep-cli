@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl">
-      <HintPath>..\packages\ConDep.Dsl.2.0.63-beta\lib\net40\ConDep.Dsl.dll</HintPath>
+    <Reference Include="ConDep.Dsl, Version=3.0.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ConDep.Dsl.3.0.11-beta\lib\net40\ConDep.Dsl.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -41,6 +42,10 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SlowCheetah.Tasks, Version=1.0.10727.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SlowCheetah.Tasks.Unofficial.1.0.0\lib\SlowCheetah.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

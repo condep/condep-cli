@@ -76,15 +76,12 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=3.0.0.26893, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ConDep.Dsl, Version=3.0.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Dsl.3.0.0-beta\lib\net40\ConDep.Dsl.dll</HintPath>
+      <HintPath>..\packages\ConDep.Dsl.3.0.11-beta\lib\net40\ConDep.Dsl.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.Dsl.Remote.Helpers">
       <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.3.0.3-beta\lib\net20\ConDep.Dsl.Remote.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="ConDep.Dsl.Remote.Resources">
-      <HintPath>..\packages\ConDep.Dsl.Remote.Resources.3.0.0-beta\lib\net40\ConDep.Dsl.Remote.Resources.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.WebQ.Client">
       <HintPath>..\packages\ConDep.WebQ.Client.2.0.0\lib\net40\ConDep.WebQ.Client.dll</HintPath>
