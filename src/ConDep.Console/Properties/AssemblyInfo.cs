@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompanyAttribute("ConDep")]
 [assembly: AssemblyProductAttribute("")]
 [assembly: AssemblyCopyrightAttribute("Copyright © ConDep 2014")]
-[assembly: AssemblyVersionAttribute("3.0.8.0")]
-[assembly: AssemblyFileVersionAttribute("3.0.8.0")]
+[assembly: AssemblyVersionAttribute("3.0.9.0")]
+[assembly: AssemblyFileVersionAttribute("3.0.9.0")]
 [assembly: CLSCompliant(true)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
