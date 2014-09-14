@@ -49,12 +49,11 @@ namespace ConDep.Console.Deploy
                 if (result.Cancelled || result.Success)
                 {
                     status.PrintSummary();
-                    Environment.Exit(0);
                 }
                 else
                 {
                     status.PrintSummary();
-                    Environment.Exit(1);
+                    failed = true;
                 }
             }
             finally
