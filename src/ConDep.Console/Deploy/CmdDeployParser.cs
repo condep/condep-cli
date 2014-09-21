@@ -10,7 +10,6 @@ namespace ConDep.Console
     public class CmdDeployParser : CmdBaseParser<ConDepOptions>
     {
         const int MIN_ARGS_REQUIRED = 3;
-        private const string DEPLOY_ALL_APPS_SWITCH = "--deployAllApps";
 
         private readonly ConDepOptions _options = new ConDepOptions();
         private readonly OptionSet _optionSet;
@@ -49,16 +48,7 @@ namespace ConDep.Console
 
             _options.AssemblyName = _args[0];
             _options.Environment = _args[1];
-            var appParam = _args[2];
-
-            if (!string.IsNullOrWhiteSpace(appParam) && appParam.ToLower() == DEPLOY_ALL_APPS_SWITCH.ToLower())
-            {
-                _options.DeployAllApps = true;
-            }
-            else
-            {
-                _options.Application = appParam;
-            }
+            _options.Application = _args[2];
 
             try
             {

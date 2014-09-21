@@ -16,7 +16,7 @@ namespace ConDep.Console
             var help = @"
 Deploy files and infrastructure to remote servers and environments
 
-Usage: ConDep deploy <assembly> <environment> <<application> | --deployAllApps> [-options]
+Usage: ConDep deploy <assembly> <environment> <application> [-options]
 
   <assembly>        Assembly containing deployment setup
                     If no path to assembly is specified, first current 
@@ -26,8 +26,6 @@ Usage: ConDep deploy <assembly> <environment> <<application> | --deployAllApps> 
   <environment>     Environment to deploy to (e.g. Dev, Test etc)
 
   <application>     Application to deploy.
-  or
-  --deployAllApps   ...to deploy all applications.
 
 where options include:
 
