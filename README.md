@@ -10,7 +10,7 @@ Documentation for ConDep is being worked on right now [(preview here)](http://do
 
 Found a bug?
 ------------
-To report bugs in the condep-dsl repo, use the [project issue tracker here on GitHub](https://github.com/condep/condep-dsl/issues). To report a general ConDep issue (you don't know which component), use the [issue tracker for the old ConDep project](https://github.com/condep/ConDep/issues)
+To report bugs in the condep-dsl repo, use the [project issue tracker here on GitHub](https://github.com/condep/condep-cli/issues). To report a general ConDep issue (you don't know which component), use the [issue tracker for the old ConDep project](https://github.com/condep/ConDep/issues)
 
 Want to contribute?
 -------------------
