@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ConDep.Dsl.Config;
@@ -30,12 +31,20 @@ namespace ConDep.Console.Encrypt
 
             var configParser = new EnvConfigParser();
             bool anySuccess = false;
+            var configFiles = new List<string>();
 
-            if (string.IsNullOrEmpty(options.Dir))
+            if (!string.IsNullOrWhiteSpace(options.Env))
             {
-                options.Dir = Directory.GetCurrentDirectory();
+                configFiles.Add(configParser.GetConDepConfigFile(options.Env, options.Dir));
             }
-            var files = configParser.GetConDepConfigFiles(options.Dir).ToList();
+            else
+            {
+                if (string.IsNullOrEmpty(options.Dir))
+                {
+                    options.Dir = Directory.GetCurrentDirectory();
+                }
+                configFiles.AddRange(configParser.GetConDepConfigFiles(options.Dir));
+            }
 
             helpWriter.PrintCopyrightMessage();
             System.Console.WriteLine();
@@ -43,7 +52,7 @@ namespace ConDep.Console.Encrypt
             if (!options.Quiet)
             {
                 System.Console.WriteLine("The following files will be encrypted:");
-                files.ForEach(x => System.Console.WriteLine("\t{0}", x));
+                configFiles.ForEach(x => System.Console.WriteLine("\t{0}", x));
 
                 System.Console.Write("\nContinue? (y/n) : ");
                 var choice = System.Console.Read();
@@ -56,7 +65,7 @@ namespace ConDep.Console.Encrypt
                 System.Console.WriteLine();
             }
 
-            foreach (var file in files)
+            foreach (var file in configFiles)
             {
                 System.Console.Out.WriteLine("\tEncrypting file [{0}] ...", file);
                 try
