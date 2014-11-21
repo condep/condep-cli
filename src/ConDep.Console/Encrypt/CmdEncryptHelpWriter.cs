@@ -14,9 +14,14 @@ namespace ConDep.Console.Encrypt
             PrintCopyrightMessage();
 
             var help = @"
-Encrypt sensitive data like passwords in json config files
+Encrypt sensitive data in json config files and return 
+key for decryption. Use this key when using condep deploy,
+so ConDep can decrypt the environment file before execution.
 
 Usage: ConDep encrypt [-options]
+
+If no options is specified, all ConDep *.env.json files 
+in the current directory will be encrypted.
 
 where options include:
 

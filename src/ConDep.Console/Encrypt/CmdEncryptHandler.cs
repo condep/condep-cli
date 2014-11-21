@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using ConDep.Dsl.Config;
 using ConDep.Dsl.Logging;
@@ -30,6 +31,10 @@ namespace ConDep.Console.Encrypt
             var configParser = new EnvConfigParser();
             bool anySuccess = false;
 
+            if (string.IsNullOrEmpty(options.Dir))
+            {
+                options.Dir = Directory.GetCurrentDirectory();
+            }
             var files = configParser.GetConDepConfigFiles(options.Dir).ToList();
 
             helpWriter.PrintCopyrightMessage();
