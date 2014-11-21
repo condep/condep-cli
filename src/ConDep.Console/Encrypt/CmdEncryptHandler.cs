@@ -86,7 +86,7 @@ namespace ConDep.Console.Encrypt
             if (anySuccess)
             {
                 System.Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.Out.WriteLine("\tEncryption key: {0}", key);
+                System.Console.Out.WriteLine("\tDecryption key: {0}", key);
                 System.Console.Out.WriteLine("\tKeep this key safe!");
                 System.Console.Out.WriteLine();
                 System.Console.Out.WriteLine("\tWhen deploying or decrypting, use the /key option to provide key.");
