@@ -1,4 +1,5 @@
-﻿using ConDep.Dsl.Config;
+﻿using System.Collections.Generic;
+using ConDep.Dsl.Config;
 using ConDep.Dsl.Logging;
 using ConDep.Dsl.Security;
 
@@ -27,7 +28,17 @@ namespace ConDep.Console.Decrypt
             var crypto = new JsonPasswordCrypto(options.Key);
 
             var configParser = new EnvConfigParser();
-            foreach (var file in configParser.GetConDepConfigFiles(options.Dir))
+            var configFiles = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(options.Env))
+            {
+                configFiles.Add(configParser.GetConDepConfigFile(options.Env, options.Dir));
+            }
+            else
+            {
+                configFiles.AddRange(configParser.GetConDepConfigFiles(options.Dir));    
+            }
+            foreach (var file in configFiles)
             {
                 System.Console.Out.WriteLine("\tDecrypting file [{0}] ...", file);
                 configParser.DecryptFile(file, crypto);
