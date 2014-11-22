@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using ConDep.Dsl.Logging;
-using log4net.Core;
 
 namespace ConDep.Console
 {
@@ -43,7 +42,6 @@ namespace ConDep.Console
 
             if (requestedName.Name == "Newtonsoft.Json")
             {
-                Debugger.Launch();
                 if (requestedName.Version.Major >= 0 && requestedName.Version.Major <= 6)
                 {
                     return Assembly.LoadFrom("Newtonsoft.Json.dll");
