@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using ConDep.Dsl.Config;
@@ -57,7 +58,7 @@ namespace ConDep.Console.Encrypt
                 System.Console.Write("\nContinue? (y/n) : ");
                 var choice = System.Console.Read();
 
-                if (Convert.ToChar(choice) != 'y')
+                if (Convert.ToChar(choice).ToString(CultureInfo.InvariantCulture).Equals("y", StringComparison.InvariantCultureIgnoreCase))
                 {
                     return;
                 }
