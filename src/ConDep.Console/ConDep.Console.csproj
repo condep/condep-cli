@@ -76,9 +76,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=3.0.70.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ConDep.Dsl, Version=3.0.71.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Dsl.3.0.70-beta\lib\net40\ConDep.Dsl.dll</HintPath>
+      <HintPath>..\packages\ConDep.Dsl.3.0.71-beta\lib\net40\ConDep.Dsl.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.Dsl.Remote.Helpers">
       <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.3.0.3-beta\lib\net20\ConDep.Dsl.Remote.Helpers.dll</HintPath>
