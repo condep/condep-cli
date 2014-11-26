@@ -58,8 +58,10 @@ namespace ConDep.Console.Encrypt
                 System.Console.Write("\nContinue? (y/n) : ");
                 var choice = System.Console.Read();
 
-                if (Convert.ToChar(choice).ToString(CultureInfo.InvariantCulture).Equals("y", StringComparison.InvariantCultureIgnoreCase))
+                if (!Convert.ToChar(choice).ToString(CultureInfo.InvariantCulture).Equals("y", StringComparison.InvariantCultureIgnoreCase))
                 {
+                    System.Console.WriteLine();
+                    System.Console.WriteLine("Aborted by user.");
                     return;
                 }
 
