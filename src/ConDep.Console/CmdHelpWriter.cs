@@ -43,9 +43,11 @@ Available commands:
     Deploy              Deploy files and infrastructure configurations to one or more servers
     Encrypt             Encrypt sensitive data, like passwords, in json-config files
     Decrypt             Decrypt encrypted data in json-config files
-    Server              Enable interaction with a ConDep Server
     Help <command>      Display help for individual help commands
 ";
+
+            //    Server              Enable interaction with a ConDep Server
+
             _writer.Write(help);
         }
 
