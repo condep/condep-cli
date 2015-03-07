@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using ConDep.Dsl.Config;
-using ConDep.Dsl.Logging;
 using ConDep.Dsl.Security;
 
 namespace ConDep.Console.Encrypt
@@ -27,16 +25,12 @@ namespace ConDep.Console.Encrypt
             var options = _parser.Parse();
             _validator.Validate(options);
 
-            var key = GetKey(options);
-            var crypto = new JsonPasswordCrypto(key);
-
-            var configParser = new EnvConfigParser();
             bool anySuccess = false;
             var configFiles = new List<string>();
 
             if (!string.IsNullOrWhiteSpace(options.Env))
             {
-                configFiles.Add(configParser.GetConDepConfigFile(options.Env, options.Dir));
+                configFiles.Add(ConfigHandler.GetConDepConfigFile(options.Env, options.Dir));
             }
             else
             {
@@ -44,7 +38,7 @@ namespace ConDep.Console.Encrypt
                 {
                     options.Dir = Directory.GetCurrentDirectory();
                 }
-                configFiles.AddRange(configParser.GetConDepConfigFiles(options.Dir));
+                configFiles.AddRange(ConfigHandler.GetConDepConfigFiles(options.Dir));
             }
 
             helpWriter.PrintCopyrightMessage();
@@ -68,12 +62,15 @@ namespace ConDep.Console.Encrypt
                 System.Console.WriteLine();
             }
 
+            var key = GetKey(options);
+
             foreach (var file in configFiles)
             {
                 System.Console.Out.WriteLine("\tEncrypting file [{0}] ...", file);
                 try
                 {
-                    configParser.EncryptFile(file, crypto);
+                    var crypto = ConfigHandler.ResolveConfigCrypto(file, key);
+                    crypto.EncryptFile(file);
                     anySuccess = true;
                     System.Console.Out.WriteLine("\tFile encrypted.");
                 }

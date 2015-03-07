@@ -25,23 +25,23 @@ namespace ConDep.Console.Decrypt
 
             _helpWriter.PrintCopyrightMessage();
 
-            var crypto = new JsonPasswordCrypto(options.Key);
-
-            var configParser = new EnvConfigParser();
             var configFiles = new List<string>();
 
             if (!string.IsNullOrWhiteSpace(options.Env))
             {
-                configFiles.Add(configParser.GetConDepConfigFile(options.Env, options.Dir));
+                configFiles.Add(ConfigHandler.GetConDepConfigFile(options.Env, options.Dir));
             }
             else
             {
-                configFiles.AddRange(configParser.GetConDepConfigFiles(options.Dir));    
+                configFiles.AddRange(ConfigHandler.GetConDepConfigFiles(options.Dir));    
             }
+
             foreach (var file in configFiles)
             {
+                var crypto = ConfigHandler.ResolveConfigCrypto(file, options.Key);
+
                 System.Console.Out.WriteLine("\tDecrypting file [{0}] ...", file);
-                configParser.DecryptFile(file, crypto);
+                crypto.DecryptFile(file);
                 System.Console.Out.WriteLine("\tFile decrypted.");
                 System.Console.WriteLine();
             }
