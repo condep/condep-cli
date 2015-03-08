@@ -26,19 +26,20 @@ namespace ConDep.Console
                             _options.TraceLevel = traceLevel;
                         }},
                     {"k=|cryptoKey=", "Key used to decrypt passwords and other sensitive data in ConDep config files.", v=> _options.CryptoKey = v },
-                    {"K=|keyFile=", "A file with the .key extension containing a key used to decrypt password and other sensitive data in ConDep config files. The .key file have to contain the decryption key only. If a full path is sent in that can be resolved from current directory, ConDep will use that. If not it will search current folder followed by users home folder.", v=> ResolveCryptoKey(v)},
+                    {"K=|keyFile=", "A file with the .key extension containing a key used to decrypt password and other sensitive data in ConDep config files. The .key file have to contain the decryption key only. If a full path is sent in that can be resolved from current directory, ConDep will use that. If not it will search current folder followed by users home folder.", v=> _options.CryptoKey = ResolveCryptoKey(v)},
                     {"q=|webQ=", "Will use ConDep's Web Queue to queue the deployment, preventing multiple deployments to execute at the same time. Useful when ConDep is triggered often from CI environments. Expects the url for the WebQ as its value.\n", v => _options.WebQAddress = v },
-                    {"d|deployOnly", "Deploy all except infrastructure\n", v => _options.DeployOnly = v != null},
                     {"b|bypassLB", "Don't use configured load balancer during execution.\n", v => _options.BypassLB = v != null},
                     {"s|sams|stopAfterMarkedServer", "Will only deploy to server marked as StopServer in json config, or first server if no server is marked. After execution, run ConDep with the continueAfterMarkedServer switch to continue deployment to remaining servers.\n", v => _options.StopAfterMarkedServer = v != null},
                     {"c|cams|continueAfterMarkedServer", "Will continue deployment to remaining servers. Used after ConDep has previously executed with the stopAfterMarkedServer switch.\n", v => _options.ContinueAfterMarkedServer = v != null},
-                    {"dryrun", "Will output the execution sequence without actually executing it.", v => _options.DryRun = v != null}
+                    {"d|dryrun", "Will output the execution sequence without actually executing it.", v => _options.DryRun = v != null}
                 };
 
         }
 
         private string ResolveCryptoKey(string keyFile)
         {
+            keyFile = Environment.ExpandEnvironmentVariables(keyFile);
+
             if (string.IsNullOrEmpty(keyFile)) return "";
             if (!keyFile.EndsWith(".key", true, CultureInfo.InvariantCulture)) throw new FileNotFoundException("Key file must have .key extension.");
 
