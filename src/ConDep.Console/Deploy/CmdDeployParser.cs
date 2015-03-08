@@ -26,7 +26,7 @@ namespace ConDep.Console
                             _options.TraceLevel = traceLevel;
                         }},
                     {"k=|cryptoKey=", "Key used to decrypt passwords and other sensitive data in ConDep config files.", v=> _options.CryptoKey = v },
-                    {"f=|keyFile=", "A file with the .key extension containing a key used to decrypt password and other sensitive data in ConDep config files. The .key file have to contain the decryption key only. If a full path is sent in that can be resolved from current directory, ConDep will use that. If not it will search current folder followed by users home folder.", v=> ResolveCryptoKey(v)},
+                    {"K=|keyFile=", "A file with the .key extension containing a key used to decrypt password and other sensitive data in ConDep config files. The .key file have to contain the decryption key only. If a full path is sent in that can be resolved from current directory, ConDep will use that. If not it will search current folder followed by users home folder.", v=> ResolveCryptoKey(v)},
                     {"q=|webQ=", "Will use ConDep's Web Queue to queue the deployment, preventing multiple deployments to execute at the same time. Useful when ConDep is triggered often from CI environments. Expects the url for the WebQ as its value.\n", v => _options.WebQAddress = v },
                     {"d|deployOnly", "Deploy all except infrastructure\n", v => _options.DeployOnly = v != null},
                     {"b|bypassLB", "Don't use configured load balancer during execution.\n", v => _options.BypassLB = v != null},
