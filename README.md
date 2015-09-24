@@ -1,12 +1,12 @@
 condep-cli
 ==========
-This is condep.exe, the command line tool for executing ConDep Artifacts.
+This is condep.exe, the command line tool for executing ConDep.
 
 Need help?
 ----------
-Talk and ask questions about ConDep on [Google Groups](https://groups.google.com/forum/#!forum/con-dep).
-
-Documentation for ConDep is being worked on right now [(preview here)](http://docs.con-dep.net), and will be available soon.
+* [Documentation](http://www.condep.io/docs)
+* [Google Groups](https://groups.google.com/forum/#!forum/con-dep)
+* [Gitter](https://gitter.im/condep?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Found a bug?
 ------------
