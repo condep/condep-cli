@@ -1,6 +1,4 @@
 ﻿using System.IO;
-using System.Security.Cryptography;
-using ConDep.Dsl.Security;
 using NDesk.Options;
 
 namespace ConDep.Console.Decrypt

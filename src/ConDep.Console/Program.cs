@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using ConDep.Dsl.Logging;
+using ConDep.Execution.Logging;
 
 namespace ConDep.Console
 {
@@ -63,7 +64,7 @@ namespace ConDep.Console
         private static void ConfigureLogger()
         {
             new LogConfigLoader().Load();
-            new Logger().AutoResolveLogger();
+            new Logger().ResolveLogger(new LogResolver());
             Logger.TraceLevel = TraceLevel.Info;
         }
 

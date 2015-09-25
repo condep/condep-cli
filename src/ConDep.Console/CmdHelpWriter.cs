@@ -5,6 +5,7 @@ using System.Reflection;
 using ConDep.Console.Decrypt;
 using ConDep.Console.Deploy;
 using ConDep.Console.Encrypt;
+using ConDep.Console.Relay;
 using ConDep.Console.Server;
 using NDesk.Options;
 
@@ -27,7 +28,12 @@ namespace ConDep.Console
 
         public virtual void WriteHelp(OptionSet optionSet)
         {
-            
+
+        }
+
+        public virtual void WriteHelp(OptionSet set1, OptionSet set2)
+        {
+
         }
 
         public virtual void WriteHelp()
@@ -43,6 +49,7 @@ Available commands:
     Deploy              Deploy files and infrastructure configurations to one or more servers
     Encrypt             Encrypt sensitive data, like passwords, in json-config files
     Decrypt             Decrypt encrypted data in json-config files
+    Relay               Will relay execution commands to a ConDep Relay Service
     Help <command>      Display help for individual help commands
 ";
 
@@ -92,6 +99,9 @@ Copyright (c) Jon Arild Torresdal
                     break;
                 case ConDepCommand.Decrypt:
                     commandHandler = new CmdDecryptHandler(new string[0]);
+                    break;
+                case ConDepCommand.Relay:
+                    commandHandler = new CmdRelayHandler(new string[0]);
                     break;
                 case ConDepCommand.Server:
                     commandHandler = new CmdServerHandler(new string[0]);

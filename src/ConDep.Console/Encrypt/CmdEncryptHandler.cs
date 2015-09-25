@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using ConDep.Dsl.Config;
-using ConDep.Dsl.Security;
+using ConDep.Execution.Config;
+using ConDep.Execution.Security;
 
 namespace ConDep.Console.Encrypt
 {

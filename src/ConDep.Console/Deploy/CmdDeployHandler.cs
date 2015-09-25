@@ -1,8 +1,9 @@
 using System;
 using System.Threading;
 using ConDep.Dsl.Config;
-using ConDep.Dsl.Execution;
 using ConDep.Dsl.Logging;
+using ConDep.Execution;
+using ConDep.Execution.Config;
 using ConDep.WebQ.Client;
 
 namespace ConDep.Console.Deploy

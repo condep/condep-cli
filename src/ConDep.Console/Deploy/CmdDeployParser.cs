@@ -75,7 +75,7 @@ namespace ConDep.Console
 
             _options.AssemblyName = _args[0];
             _options.Environment = _args[1];
-            _options.Application = _args[2];
+            _options.Runbook = _args[2];
 
             try
             {

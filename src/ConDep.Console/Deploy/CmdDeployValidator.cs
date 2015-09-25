@@ -1,5 +1,5 @@
 ﻿using ConDep.Dsl.Config;
-using ConDep.Dsl.Security;
+using ConDep.Execution.Security;
 
 namespace ConDep.Console
 {
@@ -9,7 +9,7 @@ namespace ConDep.Console
         {
             ValidateAssemblyName(options);
             ValidateEnvironment(options);
-            ValidateApplication(options);
+            ValidateRunbook(options);
             ValidateCryptoKey(options);
         }
 
@@ -38,12 +38,12 @@ namespace ConDep.Console
             throw new ConDepCmdParseException("No assembly provided.");
         }
 
-        private void ValidateApplication(ConDepOptions options)
+        private void ValidateRunbook(ConDepOptions options)
         {
             if (options.DeployAllApps) return;
-            if (!string.IsNullOrWhiteSpace(options.Application)) return;
+            if (!string.IsNullOrWhiteSpace(options.Runbook)) return;
 
-            throw new ConDepCmdParseException("No application provided. If you want to deploy all applications, use the --deployAllApps switch.");
+            throw new ConDepCmdParseException("No Runbook provided. If you want to execute all Runbooks, use the --deployAllApps switch.");
         }
     }
 }

@@ -39,6 +39,10 @@ namespace ConDep.Console.Help
             {
                 options.Command = ConDepCommand.Decrypt;
             }
+            else if (command == "relay")
+            {
+                options.Command = ConDepCommand.Relay;
+            }
             else if (command == "server")
             {
                 options.Command = ConDepCommand.Server;

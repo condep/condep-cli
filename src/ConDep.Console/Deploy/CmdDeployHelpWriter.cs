@@ -16,18 +16,19 @@ namespace ConDep.Console
             var help = @"
 Deploy files and infrastructure to remote servers and environments
 
-Usage: ConDep deploy <assembly> <environment> <application> [-options]
+Usage: ConDep deploy <conPack> <environment> <runbook> [-options]
 
-  <assembly>        Assembly containing deployment setup
-                    If no path to assembly is specified, first current 
+  <conPack>         Assembly (ConPack) containing all your runbooks.
+                    If no path to ConPack is specified, first current 
                     directory is searched followed by executing directory. 
 
   <environment>     File containing environment specific configuration 
                     (e.g. Dev, Test etc). By convention ConDep will look 
                     for <env>.env.json or <env>.env.yml|yaml.  
 
-  <artifact>        Artifact to execute. By convention is the same name
-                    as the Artifact class.
+  <runbook>         Runbook to execute. By convention is the class 
+                    name for a class that inherit from Runbook.Local
+                    or Runbook.Remote.
 
 where options include:
 
@@ -44,7 +45,7 @@ Note:
 
 Example:
 
-    ConDep deploy MyAssembly.dll dev MyArtifact
+    ConDep deploy MyAssembly.dll dev MyExecutionPlan
 ";
             _writer.Write(help2);
         }
