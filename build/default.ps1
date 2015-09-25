@@ -1,4 +1,4 @@
-properties {
+﻿properties {
 	$pwd = Split-Path $psake.build_script_file	
 	$build_directory  = "$pwd\output\condep-cli"
 	$configuration = "Release"
@@ -40,8 +40,8 @@ task Create-BuildSpec-ConDep-Console {
 		-version $(GetNugetAssemblyVersion $build_directory\ConDep.Console\ConDep.exe) `
 		-id "ConDep" `
 		-title "ConDep" `
-		-licenseUrl "http://www.con-dep.net/license/" `
-		-projectUrl "http://www.con-dep.net/" `
+		-licenseUrl "http://www.condep.io/license/" `
+		-projectUrl "http://www.condep.io/" `
 		-description "ConDep is a highly extendable Domain Specific Language for Continuous Deployment, Continuous Delivery and Infrastructure as Code on Windows." `
 		-iconUrl "https://raw.github.com/condep/ConDep/master/images/ConDepNugetLogo.png" `
 		-releaseNotes "$releaseNotes" `
