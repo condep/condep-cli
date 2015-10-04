@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ConDep.Console.Deploy;
 using ConDep.Dsl.Config;
 using ConDep.Execution.Config;
 using ConDep.Execution.Relay;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ConDep.Console.Relay
 {
@@ -28,28 +31,53 @@ namespace ConDep.Console.Relay
 
         public void Execute(CmdHelpWriter helpWriter)
         {
-            var deployOptions = GetDeployOptions(_deployParser, _deployValidator);
-            var relayOptions = GetRelayOptions(_relayParser, _relayValidator, deployOptions);
-            var relayConfig = GetRelayConfig(relayOptions, deployOptions);
-            var artifactManifest = GetArtifactManifest(relayOptions, deployOptions);
+            var failed = false;
 
-            var handler = new RelayHandler();
-            handler.Relay(artifactManifest, relayConfig, new DeployOptions
+            try
             {
-                AssemblyName = deployOptions.AssemblyName,
-                BypassLB = deployOptions.BypassLB,
-                ContinueAfterMarkedServer = deployOptions.ContinueAfterMarkedServer,
-                CryptoKey = deployOptions.CryptoKey,
-                DryRun = deployOptions.DryRun,
-                Environment = deployOptions.Environment,
-                Runbook = deployOptions.Runbook,
-                SkipHarvesting = deployOptions.SkipHarvesting,
-                StopAfterMarkedServer = deployOptions.StopAfterMarkedServer,
-                TraceLevel = deployOptions.TraceLevel.ToString(),
-                WebQAddress = deployOptions.WebQAddress
-            });
+                var deployOptions = GetDeployOptions(_deployParser, _deployValidator);
+                var relayOptions = GetRelayOptions(_relayParser, _relayValidator, deployOptions);
+                var relayConfig = GetRelayConfig(relayOptions, deployOptions);
+                var artifactManifest = GetArtifactManifest(relayOptions, deployOptions);
 
-            System.Console.ReadLine();
+                var status = new ConDepStatus();
+
+                var handler = new RelayHandler();
+                var result = handler.Relay(artifactManifest, relayConfig, new DeployOptions
+                {
+                    AssemblyName = deployOptions.AssemblyName,
+                    BypassLB = deployOptions.BypassLB,
+                    ContinueAfterMarkedServer = deployOptions.ContinueAfterMarkedServer,
+                    CryptoKey = deployOptions.CryptoKey,
+                    DryRun = deployOptions.DryRun,
+                    Environment = deployOptions.Environment,
+                    Runbook = deployOptions.Runbook,
+                    SkipHarvesting = deployOptions.SkipHarvesting,
+                    StopAfterMarkedServer = deployOptions.StopAfterMarkedServer,
+                    TraceLevel = deployOptions.TraceLevel.ToString(),
+                    WebQAddress = deployOptions.WebQAddress
+                });
+
+                status.EndTime = DateTime.Now;
+
+                if (result.Cancelled || result.Success)
+                {
+                    status.PrintSummary();
+                }
+                else
+                {
+                    status.PrintSummary();
+                    failed = true;
+                }
+            }
+            finally
+            {
+                if (failed)
+                {
+                    Environment.Exit(1);
+                }
+
+            }
         }
 
         private ArtifactManifest GetArtifactManifest(ConDepRelayOptions options, ConDepOptions deployOptions)
@@ -114,4 +142,5 @@ namespace ConDep.Console.Relay
         {
         }
     }
+
 }
