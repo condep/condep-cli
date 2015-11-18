@@ -70,11 +70,12 @@ namespace ConDep.Console
 
         private static void ExecuteCommand(string[] args)
         {
-            var helpWriter = new CmdHelpWriter(System.Console.Out);
+            CmdHelpWriter helpWriter = null;
 
             try
             {
                 _handler = CmdFactory.Resolve(args);
+                helpWriter = _handler.HelpWriter;
                 _handler.Execute(helpWriter);
             }
             catch (AggregateException aggEx)
@@ -82,6 +83,7 @@ namespace ConDep.Console
                 foreach (var ex in aggEx.InnerExceptions)
                 {
                     System.Console.ForegroundColor = ConsoleColor.Red;
+                    if (helpWriter == null) helpWriter = new CmdHelpWriter(System.Console.Out);
                     helpWriter.WriteException(ex);
                     System.Console.ResetColor();
                     System.Console.WriteLine("For help type ConDep Help <command>");
@@ -91,6 +93,7 @@ namespace ConDep.Console
             catch (Exception ex)
             {
                 System.Console.ForegroundColor = ConsoleColor.Red;
+                if(helpWriter == null) helpWriter = new CmdHelpWriter(System.Console.Out);
                 helpWriter.WriteException(ex);
                 System.Console.ResetColor();
                 System.Console.WriteLine("For help type ConDep Help <command>");

@@ -10,5 +10,6 @@ namespace ConDep.Console
         //TValidator Validator { get; }
         void WriteHelp();
         void Cancel();
+        CmdHelpWriter HelpWriter { get; }
     }
 }

@@ -26,5 +26,7 @@ namespace ConDep.Console.Server
         {
             
         }
+
+        public CmdHelpWriter HelpWriter {get {return _helpWriter;} }
     }
 }

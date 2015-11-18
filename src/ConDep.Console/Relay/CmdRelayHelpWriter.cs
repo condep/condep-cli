@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using NDesk.Options;
 
 namespace ConDep.Console.Relay
@@ -68,5 +70,27 @@ Example:
         -s tO2bAUz/YaaM6SEEV4VSOrmdx+pGdH6OWzFQQgnFmnA=
 ");
         }
+
+        public override void PrintCopyrightMessage()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            const int versionAreaLength = 29;
+            var version = versionInfo.ProductVersion.Substring(0, versionInfo.ProductVersion.LastIndexOf("."));
+            var versionText = string.Format("Version {0} ", version);
+            var versionWhitespace = string.Join(" ", new string[versionAreaLength - (versionText.Length - 1)]);
+
+            //ASCII art generated at http://www.network-science.de/ascii/ using Standard font
+            _writer.Write(@"
+Copyright (c) Jon Arild Torresdal
+  ____            ____               ____      _             
+ / ___|___  _ __ |  _ \  ___ _ __   |  _ \ ___| | __ _ _   _ 
+| |   / _ \| '_ \| | | |/ _ \ '_ \  | |_) / _ \ |/ _` | | | |
+| |__| (_) | | | | |_| |  __/ |_) | |  _ <  __/ | (_| | |_| |
+ \____\___/|_| |_|____/ \___| .__/  |_| \_\___|_|\__,_|\__, |
+" + versionWhitespace + versionText + "|_|                        |___/\n\n");
+        }
     }
+
 }

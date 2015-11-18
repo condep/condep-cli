@@ -41,5 +41,7 @@ namespace ConDep.Console.Help
         {
             
         }
+
+        public CmdHelpWriter HelpWriter {get {return _helpWriter;} }
     }
 }

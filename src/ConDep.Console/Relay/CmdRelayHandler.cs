@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using ConDep.Console.Deploy;
 using ConDep.Dsl.Config;
+using ConDep.Dsl.Logging;
 using ConDep.Execution.Config;
 using ConDep.Execution.Relay;
 using Newtonsoft.Json;
@@ -14,7 +16,7 @@ namespace ConDep.Console.Relay
     {
         private readonly CmdRelayParser _relayParser;
         private readonly CmdRelayValidator _relayValidator;
-        private readonly CmdRelayHelpWriter _helpWriter;
+        private readonly CmdHelpWriter _helpWriter;
         private readonly CmdDeployParser _deployParser;
         private readonly CmdDeployValidator _deployValidator;
 
@@ -40,9 +42,13 @@ namespace ConDep.Console.Relay
                 var relayConfig = GetRelayConfig(relayOptions, deployOptions);
                 var artifactManifest = GetArtifactManifest(relayOptions, deployOptions);
 
+                helpWriter.PrintCopyrightMessage();
+
                 var status = new ConDepStatus();
 
                 var handler = new RelayHandler();
+
+                Logger.Info("Relaying command to available Relay server...");
                 var result = handler.Relay(artifactManifest, relayConfig, new DeployOptions
                 {
                     AssemblyName = deployOptions.AssemblyName,
@@ -54,7 +60,7 @@ namespace ConDep.Console.Relay
                     Runbook = deployOptions.Runbook,
                     SkipHarvesting = deployOptions.SkipHarvesting,
                     StopAfterMarkedServer = deployOptions.StopAfterMarkedServer,
-                    TraceLevel = deployOptions.TraceLevel.ToString(),
+                    TraceLevel = deployOptions.TraceLevel,
                     WebQAddress = deployOptions.WebQAddress
                 });
 
@@ -133,6 +139,8 @@ namespace ConDep.Console.Relay
         {
             throw new System.NotImplementedException();
         }
+
+        public CmdHelpWriter HelpWriter {get { return _helpWriter; } }
     }
 
     public class ConDepMissingRelayConfigException : Exception

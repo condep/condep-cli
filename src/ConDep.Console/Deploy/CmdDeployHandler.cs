@@ -91,6 +91,9 @@ namespace ConDep.Console.Deploy
                 _webQ.LeaveQueue();
             }
         }
+
+        public CmdHelpWriter HelpWriter {get {return _helpWriter;} }
+
         public void WriteHelp()
         {
             _helpWriter.WriteHelp(_parser.OptionSet);

@@ -48,7 +48,7 @@ task Create-BuildSpec-ConDep-Console {
 		-tags "Continuous Deployment Delivery Infrastructure WebDeploy Deploy msdeploy IIS automation powershell remote aws azure" `
 		-dependencies @(
 			@{ Name="ConDep.Dsl"; Version="[5.0.0-beta8,6)"},
-			@{ Name="ConDep.Execution"; Version="[5.0.0-beta9,6)"},
+			@{ Name="ConDep.Execution"; Version="[5.0.0-beta996,6)"},
 			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.0-beta2,6)"},
 			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[3.1.0,4)"},
 			@{ Name="ConDep.Node"; Version="[4.0.0,5)"},

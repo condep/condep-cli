@@ -58,7 +58,7 @@ Available commands:
             _writer.Write(help);
         }
 
-        public void PrintCopyrightMessage()
+        public virtual void PrintCopyrightMessage()
         {
             var assembly = Assembly.GetExecutingAssembly();
             var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
@@ -68,7 +68,7 @@ Available commands:
             var versionText = string.Format("Version {0} ", version);
             var versionWhitespace = string.Join(" ", new string[versionAreaLength - (versionText.Length - 1)]);
 
-            //Logger.Info(string.Format("ConDep Version {0}", version));
+            //ASCII art generated at http://www.network-science.de/ascii/ using Standard font
             _writer.Write(@"
 Copyright (c) Jon Arild Torresdal
    ____            ____             

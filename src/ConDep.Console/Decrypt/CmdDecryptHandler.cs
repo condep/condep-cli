@@ -54,5 +54,7 @@ namespace ConDep.Console.Decrypt
         {
             
         }
+
+        public CmdHelpWriter HelpWriter {get {return _helpWriter;} }
     }
 }

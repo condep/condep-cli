@@ -104,6 +104,8 @@ namespace ConDep.Console.Encrypt
             
         }
 
+        public CmdHelpWriter HelpWriter {get { return _helpWriter; } }
+
         private string GetKey(ConDepEncryptOptions options)
         {
             return string.IsNullOrWhiteSpace(options.Key) ? JsonPasswordCrypto.GenerateKey(256) : options.Key;
