@@ -1,0 +1,13 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+configuration:
+- Release
+before_build:
+- ps: nuget restore src/condep-cli.sln
+build:
+  project: src\condep-cli.sln
+os: Visual Studio 2015
+install:
+- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
