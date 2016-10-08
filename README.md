@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6g72oiw0wpiqgd35/branch/master?svg=true)](https://ci.appveyor.com/project/torresdal/condep-cli/branch/master)
+
 condep-cli
 ==========
 This is condep.exe, the command line tool for executing ConDep.
