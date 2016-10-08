@@ -1,13 +1,25 @@
-version: 1.0.{build}
+version: 5.0.1-beta{build}
 branches:
   only:
   - master
 configuration:
 - Release
-before_build:
-- ps: nuget restore src/condep-cli.sln
-build:
-  project: src\condep-cli.sln
-os: Visual Studio 2015
 install:
-- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+- ps: .\build\install.ps1
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: "$(assembly_version)"
+  assembly_file_version: "$(assembly_file_version)"
+  assembly_informational_version: "$(assembly_informational_version)"
+build_script:
+- ps: .\build.ps1
+artifacts:
+- path: .\build\output\**\*.nupkg
+  name: NuGet   
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/condep/api/v2/package
+  api_key:
+    secure: dZ7xFcrnaPlBwtVoMWhKpmP36QDQeBLQi9ir3yhjPVNtTlPWJ7Q9TFjN3lh9TOW9
+  skip_symbols: true

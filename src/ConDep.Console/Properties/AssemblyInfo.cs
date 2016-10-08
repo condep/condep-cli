@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProductAttribute("")]
 [assembly: AssemblyCopyrightAttribute("Copyright © ConDep 2014")]
 [assembly: AssemblyVersionAttribute("5.0.0.0")]
-[assembly: AssemblyFileVersionAttribute("5.0.0.0")]
+[assembly: AssemblyFileVersionAttribute("5.0.0-beta")]
 [assembly: CLSCompliant(true)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
