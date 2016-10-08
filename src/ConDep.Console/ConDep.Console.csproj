@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConDep.Dsl, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Dsl.5.0.0-beta95\lib\net40\ConDep.Dsl.dll</HintPath>
+      <HintPath>..\packages\ConDep.Dsl.5.0.0-beta993\lib\net40\ConDep.Dsl.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ConDep.Dsl.Remote.Helpers, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -91,7 +91,7 @@
       <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.3.1.0\lib\net20\ConDep.Dsl.Remote.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.Execution, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.0-beta9996\lib\net40\ConDep.Execution.dll</HintPath>
+      <HintPath>..\packages\ConDep.Execution.5.0.0-beta99991\lib\net40\ConDep.Execution.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ConDep.WebQ.Client">
