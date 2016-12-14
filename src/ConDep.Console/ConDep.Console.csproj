@@ -82,23 +82,23 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=5.0.1.17, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Dsl.5.0.1-beta00017\lib\net40\ConDep.Dsl.dll</HintPath>
+    <Reference Include="ConDep.Dsl, Version=5.0.1.31, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.5.0.1-beta00031\lib\net40\ConDep.Dsl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.3.1.0\lib\net20\ConDep.Dsl.Remote.Helpers.dll</HintPath>
+    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.1-beta00007\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ConDep.Execution, Version=5.0.1.11, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.1-beta00011\lib\net40\ConDep.Execution.dll</HintPath>
+    <Reference Include="ConDep.Execution, Version=5.0.1.19, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Execution.5.0.1-beta00019\lib\net40\ConDep.Execution.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ConDep.WebQ.Client">
       <HintPath>..\packages\ConDep.WebQ.Client.2.0.0\lib\net40\ConDep.WebQ.Client.dll</HintPath>
     </Reference>
-    <Reference Include="ConDepNode, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Node.4.1.0-beta0001\lib\net40\ConDepNode.exe</HintPath>
+    <Reference Include="ConDepNode, Version=5.0.1.15, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Node.5.0.1-beta00015\lib\net40\ConDepNode.exe</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
