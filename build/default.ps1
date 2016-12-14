@@ -12,25 +12,34 @@ function GetNugetAssemblyVersion($assemblyPath) {
     
     if(Test-Path Env:\APPVEYOR_BUILD_VERSION)
     {
-        #When building on appveyor, set correct beta number.
         $appVeyorBuildVersion = $env:APPVEYOR_BUILD_VERSION
-        
-        $version = $appVeyorBuildVersion.Split('-') | Select-Object -First 1
-        $betaNumber = $appVeyorBuildVersion.Split('-') | Select-Object -Last 1 | % {$_.replace("beta","")}
+     
+		# Getting the version number. Without the beta part, if its a beta package   
+        $version = $appVeyorBuildVersion.Split('.')
+        $major = $version[0] 
+        $minor = $version[1] 
+        $patch = $version[2].Split('-') | Select-Object -First 1
 
-        switch ($betaNumber.length) 
-        { 
-            1 {$betaNumber = $betaNumber.Insert(0, '0').Insert(0, '0').Insert(0, '0').Insert(0, '0')} 
-            2 {$betaNumber = $betaNumber.Insert(0, '0').Insert(0, '0').Insert(0, '0')} 
-            3 {$betaNumber = $betaNumber.Insert(0, '0').Insert(0, '0')}
-            4 {$betaNumber = $betaNumber.Insert(0, '0')}                
-            default {$betaNumber = $betaNumber}
-        }
-
-        return "$version-beta$betaNumber"
+        # Setting beta postfix, if beta build. The beta number must be 5 digits, therefor this operation.
+        $betaString = ""
+        if($appVeyorBuildVersion.Contains("beta"))
+        {
+        	$buildNumber = $appVeyorBuildVersion.Split('-') | Select-Object -Last 1 | % {$_.replace("beta","")}
+        	switch ($buildNumber.length) 
+        	{	 
+            	1 {$buildNumber = $buildNumber.Insert(0, '0').Insert(0, '0').Insert(0, '0').Insert(0, '0')} 
+            	2 {$buildNumber = $buildNumber.Insert(0, '0').Insert(0, '0').Insert(0, '0')} 
+            	3 {$buildNumber = $buildNumber.Insert(0, '0').Insert(0, '0')}
+            	4 {$buildNumber = $buildNumber.Insert(0, '0')}                
+            	default {$buildNumber = $buildNumber}
+        	}
+        	$betaString = "-beta$buildNumber" 
+        }	
+        return "$major.$minor.$patch$betaString"
     }
     else
     {
+		#When building on local machine, set versionnumber from assembly info.
         $versionInfo = Get-Item $assemblyPath | % versioninfo
         return "$($versionInfo.FileVersion)"
     }
@@ -39,8 +48,21 @@ function GetNugetAssemblyVersion($assemblyPath) {
 task default -depends Build-All, Pack-All
 task ci -depends Build-All, Pack-All
 
+task Build-All -depends Clean, ResotreNugetPackages, Build, Check-VersionExists, Create-BuildSpec-ConDep-Console
 task Pack-All -depends Pack-ConDep-Console
-task Build-All -depends Clean, ResotreNugetPackages, Build, Create-BuildSpec-ConDep-Console
+
+task Check-VersionExists {
+	$version = $(GetNugetAssemblyVersion $build_directory\ConDep.Console\ConDep.exe) 
+	Exec { 
+		$packages = & $nuget list "ConDep" -source "https://www.myget.org/F/condep/api/v3/index.json" -prerelease -allversions 
+		ForEach($package in $packages){
+			$packageVersionNumber = $package.Split(' ') | Select-Object -Last 1
+			if($packageVersionNumber -eq $version){
+				throw "ConDep $packageVersionNumber already exists on myget. Have you forgot to update version in appveyor.yml?"
+			}
+		}
+	}
+}
 
 task ResotreNugetPackages {
 	Exec { & $nuget restore "$pwd\..\src\condep-cli.sln" }
@@ -68,17 +90,16 @@ task Create-BuildSpec-ConDep-Console {
 		-releaseNotes "$releaseNotes" `
 		-tags "Continuous Deployment Delivery Infrastructure WebDeploy Deploy msdeploy IIS automation powershell remote aws azure" `
 		-dependencies @(
-			@{ Name="ConDep.Dsl"; Version="[5.0.0-beta95,6)"},
-			@{ Name="ConDep.Execution"; Version="[5.0.0-beta9996,6)"},
-			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.0-beta8,6)"},
-			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[3.1.0,4)"},
-			@{ Name="ConDep.Node"; Version="[4.1.0-beta0001,5)"},
-			@{ Name="ConDep.WebQ.Client"; Version="[2.0.0,3)"},
+			@{ Name="ConDep.Dsl"; Version="[5.0.0,6)"},
+			@{ Name="ConDep.Execution"; Version="[5.0.0,6)"},
+			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.0,6)"},
+			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[5.0.0,6)"},
+			@{ Name="ConDep.Node"; Version="[5.0.0,6)"},
 			@{ Name="NDesk.Options"; Version="[0.2.1]"},
 			@{ Name="SlowCheetah.Tasks.Unofficial"; Version="[1.0.0]"}
 		) `
 		-files @(
-			@{ Path="ConDep.Console\ConDep.exe"; Target="lib/net40"}
+			@{ Path="ConDep.Console\ConDep.exe"; Target="lib/net45"}
 		)
 }
 
