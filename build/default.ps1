@@ -54,11 +54,15 @@ task Pack-All -depends Pack-ConDep-Console
 task Check-VersionExists {
 	$version = $(GetNugetAssemblyVersion $build_directory\ConDep.Console\ConDep.exe) 
 	Exec { 
-		$packages = & $nuget list "ConDep" -source "https://www.myget.org/F/condep/api/v3/index.json" -prerelease -allversions 
+		$packages = & $nuget list "ConDep" -source "https://www.myget.org/F/condep/api/v3/index.json" -prerelease -allversions
+		$packages 
 		ForEach($package in $packages){
-			$packageVersionNumber = $package.Split(' ') | Select-Object -Last 1
-			if($packageVersionNumber -eq $version){
-				throw "ConDep $packageVersionNumber already exists on myget. Have you forgot to update version in appveyor.yml?"
+			$packageName = $package.Split(' ') | Select-Object -First 1
+			if($packageName -eq "ConDep"){
+				$packageVersionNumber = $package.Split(' ') | Select-Object -Last 1
+				if($packageVersionNumber -eq $version){
+					throw "ConDep $packageVersionNumber already exists on myget. Have you forgot to update version in appveyor.yml?"
+				}
 			}
 		}
 	}
