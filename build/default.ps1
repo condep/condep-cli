@@ -93,11 +93,11 @@ task Create-BuildSpec-ConDep-Console {
 		-releaseNotes "$releaseNotes" `
 		-tags "Continuous Deployment Delivery Infrastructure WebDeploy Deploy msdeploy IIS automation powershell remote aws azure" `
 		-dependencies @(
-			@{ Name="ConDep.Dsl"; Version="[5.0.0,6)"},
-			@{ Name="ConDep.Execution"; Version="[5.0.0,6)"},
-			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.0,6)"},
-			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[5.0.0,6)"},
-			@{ Name="ConDep.Node"; Version="[5.0.0,6)"},
+			@{ Name="ConDep.Dsl"; Version="[5.0.1,6)"},
+			@{ Name="ConDep.Execution"; Version="[5.0.1,6)"},
+			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.1,6)"},
+			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[5.0.1,6)"},
+			@{ Name="ConDep.Node"; Version="[5.0.1,6)"},
 			@{ Name="NDesk.Options"; Version="[0.2.1]"},
 			@{ Name="SlowCheetah.Tasks.Unofficial"; Version="[1.0.0]"}
 		) `
