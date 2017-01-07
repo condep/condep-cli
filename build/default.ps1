@@ -98,6 +98,7 @@ task Create-BuildSpec-ConDep-Console {
 			@{ Name="ConDep.Dsl.Operations"; Version="[5.0.1-beta00001,6)"},
 			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[5.0.1-beta00001,6)"},
 			@{ Name="ConDep.Node"; Version="[5.0.1-beta00001,6)"},
+			@{ Name="ConDep.WebQ.Client"; Version="[2.0.0]"},
 			@{ Name="NDesk.Options"; Version="[0.2.1]"},
 			@{ Name="SlowCheetah.Tasks.Unofficial"; Version="[1.0.0]"}
 		) `
