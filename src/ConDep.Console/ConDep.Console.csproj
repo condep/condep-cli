@@ -82,29 +82,29 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=5.0.1.17, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Dsl.5.0.1-beta00032\lib\net45\ConDep.Dsl.dll</HintPath>
-    </Reference>
-    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.1-beta00009\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="ConDep.Execution, Version=5.0.1.23, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.1-beta00023\lib\net45\ConDep.Execution.dll</HintPath>
+    <Reference Include="ConDep.Dsl, Version=5.0.1.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.5.0.1\lib\net45\ConDep.Dsl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDep.WebQ.Client, Version=5.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.WebQ.Client.5.0.1-beta00006\lib\net45\ConDep.WebQ.Client.dll</HintPath>
+    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.1.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.1\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDep.WebQ.Data, Version=5.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.WebQ.Client.5.0.1-beta00006\lib\net45\ConDep.WebQ.Data.dll</HintPath>
+    <Reference Include="ConDep.Execution, Version=5.0.1.24, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Execution.5.0.1\lib\net45\ConDep.Execution.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDepNode, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ConDep.Node.5.0.1-beta00017\lib\net45\ConDepNode.exe</HintPath>
+    <Reference Include="ConDep.WebQ.Client, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ConDep.WebQ.Data, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ConDepNode, Version=5.0.1.18, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Node.5.0.1\lib\net45\ConDepNode.exe</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
