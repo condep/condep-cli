@@ -99,8 +99,8 @@ task Create-BuildSpec-ConDep-Console {
 			@{ Name="ConDep.Dsl.Remote.Helpers"; Version="[5.0.1,6)"},
 			@{ Name="ConDep.Node"; Version="[5.0.1,6)"},
 			@{ Name="ConDep.WebQ.Client"; Version="[5.0.1,6)"},
-			@{ Name="NDesk.Options"; Version="[0.2.1]"},
-			@{ Name="SlowCheetah.Tasks.Unofficial"; Version="[1.0.0]"}
+			@{ Name="NDesk.Options"; Version="[0.2.1,1)"},
+			@{ Name="SlowCheetah.Tasks.Unofficial"; Version="[1.0.0,2)"}
 		) `
 		-files @(
 			@{ Path="ConDep.Console\ConDep.exe"; Target="lib/net45"}
