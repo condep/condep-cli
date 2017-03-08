@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6DE249
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{255E5D05-05DA-4A22-981A-FA40EA520903}"
 	ProjectSection(SolutionItems) = preProject
-		..\appveyor.yml = ..\appveyor.yml
 		..\build\default.ps1 = ..\build\default.ps1
 		..\build\install.ps1 = ..\build\install.ps1
 	EndProjectSection
