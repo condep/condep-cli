@@ -82,17 +82,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=5.0.3.38, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Dsl.5.0.3\lib\net45\ConDep.Dsl.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="ConDep.Dsl, Version=5.0.4.49, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.5.0.4\lib\net45\ConDep.Dsl.dll</HintPath>
     </Reference>
-    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.1.10, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.1\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.2.26, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.2\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="ConDep.Execution, Version=5.0.1.24, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.1\lib\net45\ConDep.Execution.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="ConDep.Execution, Version=5.0.2.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Execution.5.0.2\lib\net45\ConDep.Execution.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.WebQ.Client, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Client.dll</HintPath>
@@ -102,9 +99,8 @@
       <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDepNode, Version=5.0.1.18, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Node.5.0.1\lib\net45\ConDepNode.exe</HintPath>
-      <Private>True</Private>
+    <Reference Include="ConDepNode, Version=5.0.2.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Node.5.0.2\lib\net45\ConDepNode.exe</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.6.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.9.6\lib\net20\Ionic.Zip.dll</HintPath>
