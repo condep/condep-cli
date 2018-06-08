@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using ConDep.Console.Deploy;
 using ConDep.Dsl.Config;
 using ConDep.Dsl.Logging;
 using ConDep.Execution.Config;
 using ConDep.Execution.Relay;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ConDep.Console.Relay
 {
