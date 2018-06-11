@@ -88,8 +88,8 @@
     <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.2.26, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.2\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="ConDep.Execution, Version=5.0.3.38, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.3-beta00038\lib\net45\ConDep.Execution.dll</HintPath>
+    <Reference Include="ConDep.Execution, Version=5.0.3.41, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Execution.5.0.3-beta00041\lib\net45\ConDep.Execution.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.WebQ.Client, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Client.dll</HintPath>
