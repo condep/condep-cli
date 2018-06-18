@@ -1,4 +1,4 @@
-version: 5.0.4-beta{build}
+version: 5.0.4.{build}
 branches:
   only:
   - master

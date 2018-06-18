@@ -82,14 +82,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConDep.Dsl, Version=5.0.5.63, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Dsl.5.0.5-beta00063\lib\net45\ConDep.Dsl.dll</HintPath>
+    <Reference Include="ConDep.Dsl, Version=5.0.5.64, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Dsl.5.0.5\lib\net45\ConDep.Dsl.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.Dsl.Remote.Helpers, Version=5.0.2.26, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConDep.Dsl.Remote.Helpers.5.0.2\lib\net45\ConDep.Dsl.Remote.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="ConDep.Execution, Version=5.0.3.43, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Execution.5.0.3-beta00043\lib\net45\ConDep.Execution.dll</HintPath>
+    <Reference Include="ConDep.Execution, Version=5.0.3.45, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Execution.5.0.3\lib\net45\ConDep.Execution.dll</HintPath>
     </Reference>
     <Reference Include="ConDep.WebQ.Client, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Client.dll</HintPath>
@@ -99,8 +99,8 @@
       <HintPath>..\packages\ConDep.WebQ.Client.5.0.1\lib\net45\ConDep.WebQ.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ConDepNode, Version=5.0.3.29, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ConDep.Node.5.0.3-beta00029\lib\net45\ConDepNode.exe</HintPath>
+    <Reference Include="ConDepNode, Version=5.0.3.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConDep.Node.5.0.3\lib\net45\ConDepNode.exe</HintPath>
     </Reference>
     <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
